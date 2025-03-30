@@ -88,6 +88,7 @@
     </CudaCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="LICENSE.txt" />
+    <None Include="VanitySearch.exe" />
+    <None Include="vs" />
   </ItemGroup>
 </Project>
