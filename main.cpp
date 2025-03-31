@@ -465,17 +465,17 @@ int main(int argc, char* argv[]) {
 	vector<string> address;
 	string outputFile = "";
 	uint32_t maxFound = 65536;
-
+	
 	// bitcrack mod
-	BITCRACK_PARAM bitcrack, * bc;
+	BITCRACK_PARAM bitcrack, *bc;
 	bc = &bitcrack;
 	Int maxKey;
-
+		
 	maxKey.SetBase16("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364140");
-
+		
 	bc->ksStart.SetInt32(1);
 	bc->ksNext.Set(&bc->ksStart);
-	bc->ksFinish.Set(&maxKey);
+	bc->ksFinish.Set(&maxKey);	
 
 	while (a < argc) {
 
@@ -538,7 +538,7 @@ int main(int argc, char* argv[]) {
 		else if (strcmp(argv[a], "--keyspace") == 0) {
 			a++;
 			getKeySpace(string(argv[a]), bc, maxKey);
-			bc->ksNext.Set(&bc->ksStart);
+			bc->ksNext.Set(&bc->ksStart);			
 			a++;
 		}
 		else if (strcmp(argv[a], "-t") == 0) {

@@ -1,3 +1,5 @@
+forked from https://github.com/allinbit/VanitySearch
+
 # VanitySearch
 A version support custom range scanning and multi address scanning.
 
