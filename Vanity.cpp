@@ -1050,7 +1050,9 @@ void VanitySearch::Search(std::vector<int> gpuId, std::vector<int> gridSize) {
 	numGPUs = ((int)gpuId.size());
 	nbFoundKey = 0;
 
-	memset(counters, 0, sizeof(counters));	
+	memset(counters, 0, sizeof(counters));
+
+	printf("Number of GPU : %d\n", numGPUs);
 
 	TH_PARAM* params = (TH_PARAM*)malloc(numGPUs * sizeof(TH_PARAM));
 	memset(params, 0, numGPUs * sizeof(TH_PARAM));
