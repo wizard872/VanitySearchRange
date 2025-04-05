@@ -19,7 +19,7 @@ Performance optimization completed by [aaelick](https://github.com/aaelick). **O
 ## Linux
 - Edit the makefile and set up the appropriate CUDA SDK and compiler paths for nvcc.
     ```
-    ccap=86
+    ccap=52,61,75,86,89,90
     
     ...
     
@@ -37,7 +37,11 @@ Performance optimization completed by [aaelick](https://github.com/aaelick). **O
 # Usage
 - Example for bitcoin puzzle 68
     ```
+    Range of (80000000000000000 ~ 80000000000000000 + FFFFFFFFFF)
     ./vanitysearch -t 0 -gpu -gpuId 0 -i in.txt -o out.txt --keyspace 80000000000000000:+FFFFFFFFFF
+
+    Range of (80000000000000000 ~ fffffffffffffffff)
+    ./vanitysearch -t 0 -gpu -gpuId 0 -i in.txt -o out.txt --keyspace 80000000000000000:fffffffffffffffff   
     ```
 
     ```
