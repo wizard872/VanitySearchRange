@@ -12,6 +12,8 @@ SRC = Base58.cpp IntGroup.cpp main.cpp Random.cpp \
 OBJDIR = obj
 
 gpu=1
+# arch, code
+# 53 62 72 75 87 89 90 120
 
 ifdef gpu
 
@@ -59,10 +61,28 @@ endif
 ifdef gpu
 ifdef debug
 $(OBJDIR)/GPU/GPUEngine.o: GPU/GPUEngine.cu
-	$(NVCC) -G -maxrregcount=0 --ptxas-options=-v --compile --compiler-options -fPIC -ccbin $(CXXCUDA) -m64 -g -I$(CUDA)/include -gencode arch=compute_52,code=sm_52 -gencode arch=compute_61,code=sm_61 -gencode arch=compute_75,code=sm_75 -gencode arch=compute_86,code=sm_86 -gencode arch=compute_89,code=sm_89 -gencode arch=compute_90,code=sm_90 -o $(OBJDIR)/GPU/GPUEngine.o -c GPU/GPUEngine.cu
+	$(NVCC) -G -maxrregcount=0 --ptxas-options=-v --compile --compiler-options -fPIC -ccbin $(CXXCUDA) -m64 -g -I$(CUDA)/include 
+	-gencode arch=compute_53,code=sm_53 
+	-gencode arch=compute_62,code=sm_62 
+	-gencode arch=compute_72,code=sm_72 
+	-gencode arch=compute_75,code=sm_75 
+	-gencode arch=compute_87,code=sm_87 
+	-gencode arch=compute_89,code=sm_89 
+	-gencode arch=compute_90,code=sm_90 
+	-gencode arch=compute_120,code=sm_120 
+	-o $(OBJDIR)/GPU/GPUEngine.o -c GPU/GPUEngine.cu
 else
 $(OBJDIR)/GPU/GPUEngine.o: GPU/GPUEngine.cu
-	$(NVCC) -maxrregcount=0 --ptxas-options=-v --compile --compiler-options -fPIC -ccbin $(CXXCUDA) -m64 -O2 -I$(CUDA)/include -gencode arch=compute_52,code=sm_52 -gencode arch=compute_61,code=sm_61 -gencode arch=compute_75,code=sm_75 -gencode arch=compute_86,code=sm_86 -gencode arch=compute_89,code=sm_89 -gencode arch=compute_90,code=sm_90 -o $(OBJDIR)/GPU/GPUEngine.o -c GPU/GPUEngine.cu
+	$(NVCC) -maxrregcount=0 --ptxas-options=-v --compile --compiler-options -fPIC -ccbin $(CXXCUDA) -m64 -O2 -I$(CUDA)/include 
+	-gencode arch=compute_53,code=sm_53 
+	-gencode arch=compute_62,code=sm_62 
+	-gencode arch=compute_72,code=sm_72 
+	-gencode arch=compute_75,code=sm_75 
+	-gencode arch=compute_87,code=sm_87 
+	-gencode arch=compute_89,code=sm_89 
+	-gencode arch=compute_90,code=sm_90 
+	-gencode arch=compute_120,code=sm_120 
+	-o $(OBJDIR)/GPU/GPUEngine.o -c GPU/GPUEngine.cu
 endif
 endif
 
