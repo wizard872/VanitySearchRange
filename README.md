@@ -37,11 +37,22 @@ Performance optimization completed by [aaelick](https://github.com/aaelick). **O
 # Usage
 - Example for bitcoin puzzle 68
     ```
+    Range of (80000000000000000 ~ 80000000000000000 + FFFFFFFFFF)
+    ./vanitysearch -t 0 -gpu -gpuId 0 -i in.txt -o out.txt --keyspace 80000000000000000:+FFFFFFFFFF
+
+    Range of (80000000000000000 ~ fffffffffffffffff)
+    ./vanitysearch -t 0 -gpu -gpuId 0 -i in.txt -o out.txt --keyspace 80000000000000000:fffffffffffffffff
+
+    
     Range of (80000000000000000 ~ 80000000000000000 + FFFFFFFFFF) and targetAddress is 1MVDYgVaSN6iKKEsbzRUAYFrYJadLYZvvZ
-    ./vanitysearch -t 0 -gpu -gpuId 0 -i in.txt -o out.txt --keyspace 80000000000000000:+FFFFFFFFFF 1MVDYgVaSN6iKKEsbzRUAYFrYJadLYZvvZ
+    ./vanitysearch -t 0 -gpu -gpuId 0 -o out.txt --keyspace 80000000000000000:+FFFFFFFFFF 1MVDYgVaSN6iKKEsbzRUAYFrYJadLYZvvZ
 
     Range of (80000000000000000 ~ fffffffffffffffff) and targetAddress is 1MVDYgVaSN6iKKEsbzRUAYFrYJadLYZvvZ
-    ./vanitysearch -t 0 -gpu -gpuId 0 -i in.txt -o out.txt --keyspace 80000000000000000:fffffffffffffffff 1MVDYgVaSN6iKKEsbzRUAYFrYJadLYZvvZ
+    ./vanitysearch -t 0 -gpu -gpuId 0 -o out.txt --keyspace 80000000000000000:fffffffffffffffff 1MVDYgVaSN6iKKEsbzRUAYFrYJadLYZvvZ
+
+
+    if use in windows,
+    vanitysearch.exe -t 0 -gpu -gpuId 0 -o out.txt --keyspace 80000000000000000:fffffffffffffffff 1MVDYgVaSN6iKKEsbzRUAYFrYJadLYZvvZ
     ```
 
     ```
